@@ -12,5 +12,54 @@
 //Game ends when a player hits the target number or goes above the target number
 
 //New game will reset the target number, crystal values, update win/loss numbers
-// crystal value will also reset to 0
 
+var CrystalGame = {
+
+    crystalsToPick: {
+        Amethyst: {
+            picture: "Amethyst.jpg",
+        }
+        Ammonite: {
+            picture: "Ammonite.jpg",
+        }
+        Azurite: {
+            picture: "Azurite.jpg",
+        }
+        Bismuth: {
+            picture: "Bismuth.jpg",
+        }
+        Calcite: {
+            picture: "Calcite.jpg",
+        }
+        Chalcanthite: {
+            picture: "Chalcanthite.jpg",
+        }
+        Emerald: {
+            picture: "Emerald.jpg",
+        }
+        Malachite: {
+            picture: "Malachite.jpg",
+        }
+        Quartz: {
+            picture: "Quartz.jpg",
+        }
+        Topaz: {
+            picture: "Topaz.jpg",
+        }
+    }
+
+
+    crystalsInPlay: null, //images of crystals
+    crystalValue: 0, // sets the value of the crystal
+    crystalValueTotal: 0, // add the clicked crystal values together
+    targetNumberValue: 0, // random number for target number
+    wins: 0, // total wins
+    losses: 0, // total losses
+
+    setupGame: function () {
+        var objKeys = Object.keys(this.crystalsToPick);
+        this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
+        console.log(setupGame);
+
+    }
+}

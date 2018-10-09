@@ -52,17 +52,41 @@ var CrystalGame = {
     var crystalsInPlay = null; //images of crystals
     var crystalValue = 0; // sets the value of the crystal
     var crystalValueTotal = 0; // add the clicked crystal values together
-    var targetNumberValue = 0; // random number for target number
+    var targetNumber = []; // random number for target number
     var wins = 0; // total wins
     var losses = 0; // total losses
+
+    //generates random target score value on refresh and puts it on the html page
+    document.getElementsByClassName('targetNumberValue').innerHTML = randomTargetOptions(19, 120);
+    
+    function randomTargetOptions(min, max) {
+        targetNumber = (Math.floor(Math.random() * (max - min + 1) ) + min);
+    }
+
+    console.log(targetNumber);
 
     //setupGame: function () {
     //    var objKeys = Object.keys(this.crystalsToPick);
     //    this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
     //}
     $(document).ready(function() {
+        //set the value to match the target number variable
+        //this will become the formula to allow us to change the HTML to match the value in Javascript
+        $(".targetNumberValue").text(targetNumber);
+        //click on a crystal and the total goes up
+
+
         $(".crystals").on("click", function() {
-            alert("You clicked a crystal!");
+            crystalValueTotal += 1;
+            alert("You clicked this crystal" + crystalValueTotal + "times!");
+
+            if (crystalValueTotal === targetNumber) {
+                alert("You win!");
+            }
+
+            else if (crystalValueTotal > targetNumber) {
+                alert("You lose!");
+            }
         });
     
     })

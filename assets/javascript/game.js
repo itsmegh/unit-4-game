@@ -47,18 +47,24 @@ var CrystalGame = {
             picture: "Topaz.jpg",
         },
     },
-
-
-    crystalsInPlay: null, //images of crystals
-    crystalValue: 0, // sets the value of the crystal
-    crystalValueTotal: 0, // add the clicked crystal values together
-    targetNumberValue: 0, // random number for target number
-    wins: 0, // total wins
-    losses: 0, // total losses
-
-    setupGame: function () {
-        var objKeys = Object.keys(this.crystalsToPick);
-        this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
-
-    }
 }
+        
+    var crystalsInPlay = null; //images of crystals
+    var crystalValue = 0; // sets the value of the crystal
+    var crystalValueTotal = 0; // add the clicked crystal values together
+    var targetNumberValue = 0; // random number for target number
+    var wins = 0; // total wins
+    var losses = 0; // total losses
+
+    //setupGame: function () {
+    //    var objKeys = Object.keys(this.crystalsToPick);
+    //    this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
+    //}
+    $(document).ready(function() {
+        $(".crystals").on("click", function() {
+            alert("You clicked a crystal!");
+        });
+    
+    })
+    
+

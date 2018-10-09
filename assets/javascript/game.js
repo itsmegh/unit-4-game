@@ -18,35 +18,35 @@ var CrystalGame = {
     crystalsToPick: {
         Amethyst: {
             picture: "Amethyst.jpg",
-        }
+        },
         Ammonite: {
             picture: "Ammonite.jpg",
-        }
+        },
         Azurite: {
             picture: "Azurite.jpg",
-        }
+        },
         Bismuth: {
             picture: "Bismuth.jpg",
-        }
+        },
         Calcite: {
             picture: "Calcite.jpg",
-        }
+        },
         Chalcanthite: {
             picture: "Chalcanthite.jpg",
-        }
+        },
         Emerald: {
             picture: "Emerald.jpg",
-        }
+        },
         Malachite: {
             picture: "Malachite.jpg",
-        }
+        },
         Quartz: {
             picture: "Quartz.jpg",
-        }
+        },
         Topaz: {
             picture: "Topaz.jpg",
-        }
-    }
+        },
+    },
 
 
     crystalsInPlay: null, //images of crystals
@@ -59,7 +59,6 @@ var CrystalGame = {
     setupGame: function () {
         var objKeys = Object.keys(this.crystalsToPick);
         this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
-        console.log(setupGame);
 
     }
 }

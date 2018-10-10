@@ -1,7 +1,7 @@
 //Click any button to start the game
 //When the game loads, there will be four crystals showing with random values
     //values should be between 1-12
-//When the game loads, there will be a random target number 
+//When the game loads, there will be a random target number - done!
     //value should be between 19-120
 //When game loads - if not the first time, have counter update wins/losses from last round
 

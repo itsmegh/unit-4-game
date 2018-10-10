@@ -49,7 +49,7 @@ var CrystalGame = {
     },
 }
         
-    var crystalsInPlay = null; //images of crystals
+    var crystalsInPlay = []; //images of crystals
     var crystalRandomNumber = []; // sets the random value of the crystal
     var crystalValueTotal = 0; // the counter, add the clicked crystal values together
     var targetNumber = []; // random number for target number
@@ -74,13 +74,17 @@ var CrystalGame = {
     }
 
     console.log(crystalRandomNumber);
+    setupGame();
+    restartGame();
+    updateWins();
+    updateLosses();
 
 
     function setupGame() {
         console.log("setup the game");
         //picks a random crystal
-        var objKeys = Object.keys(this.crystalsToPick);
-       this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
+        //var objKeys = Object.keys(this.crystalsToPick);
+       //this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
 
        //need a this function that will put the chosen pictures onto the four cards
        //need a function to assign a random value to each of the picture cards
@@ -88,7 +92,7 @@ var CrystalGame = {
     };
 
     function restartGame() {
-        document.querySelector(crystalValueTotal >= targetNumber).innerHTML = "";
+        console.log("restart game")
         this.crystalsInPlay = null;
         this.crystalRandomNumber = [];
         this.crystalValueTotal = 0; // the counter, add the clicked crystal values together
@@ -108,8 +112,10 @@ var CrystalGame = {
                 this.wins = this.wins + 1;
             }
         }
-        document.querySelector(".winCounter").innerHTML = this.wins;
     };
+
+    document.querySelector(".winCounter").innerHTML = this.wins;
+
 
     function updateLosses() {
         var lose;
@@ -121,9 +127,10 @@ var CrystalGame = {
         } else {
             lose = false;
         }
-
-        document.querySelector(".lossCounter").innerHTML = this.loses;
     };
+
+    document.querySelector(".lossCounter").innerHTML = this.loses;
+
     
 
     for (var i=0; i<crystalRandomNumber.length; i++) {

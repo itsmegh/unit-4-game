@@ -1,5 +1,5 @@
 //Click any button to start the game
-//When the game loads, there will be four crystals showing with random values
+//When the game loads, there will be four crystals showing with random values - done!
     //values should be between 1-12
 //When the game loads, there will be a random target number - done!
     //value should be between 19-120
@@ -50,7 +50,7 @@ var CrystalGame = {
 }
         
     var crystalsInPlay = null; //images of crystals
-    var crystalRandomNumber = []; // sets the value of the crystal
+    var crystalRandomNumber = []; // sets the random value of the crystal
     var crystalValueTotal = 0; // the counter, add the clicked crystal values together
     var targetNumber = []; // random number for target number
     var wins = 0; // total wins
@@ -66,6 +66,7 @@ var CrystalGame = {
 
     console.log(targetNumber);
 
+    //generates a random crystal value on refresh
     document.getElementsByClassName('crystalValue').innerHTML = randomCrystalValues(1, 12);
 
     function randomCrystalValues(min, max) {
@@ -86,14 +87,14 @@ var CrystalGame = {
 
     $(document).ready(function() {
 
-        // $(".crystal-image").on("click", function() {
+        $(".crystal-image").on("click", function() {
 
-        //     var crystalNumberOptions = ($(this).attr(".crystalValue"));
-        //     crystalNumberOptions = parseInt(crystalNumberOptions);
+            // var crystalRandomNumber = ($(this).attr(".crystalValue"));
+            // crystalRandomNumber = parseInt(crystalRandomNumber);
 
-        //     crystalValueTotal += crystalNumberOptions;
+            // //crystalValueTotal += crystalRandomNumber;
 
-        //     console.log(crystalValueTotal); // returning a NaN
+            // console.log(crystalRandomNumber); // returning a NaN
 
             if (crystalValueTotal === targetNumber) {
                 alert("You win!");
@@ -106,9 +107,10 @@ var CrystalGame = {
         //set the value to match the target number variable
         //this will become the formula to allow us to change the HTML to match the value in Javascript
         $(".targetNumberValue").text(targetNumber);
-        //click on a crystal and the total goes up
+        //sets the value to match the current total crystal value
+        $(".crystalValueTotal").text(crystalValueTotal);
 
-    
+    })
     
     
 

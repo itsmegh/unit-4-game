@@ -3,3 +3,11 @@ body {
     background-image: url(../images/grain_wood_background_hd_picture_3.jpg);
     background-size: cover;
 }
+
+.crystal-card {
+    margin: 8px;
+    padding: 5px;
+    size: 50%;
+    position: relative;
+    margin-inline-start: -1%;
+}

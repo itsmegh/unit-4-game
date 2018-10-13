@@ -17,34 +17,53 @@ var crystalGame = {
 
     crystalsToPick: {
         Amethyst: {
-            picture: "Amethyst.jpg",
+            picture: "assets/images/Amethyst.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
         },
         Ammonite: {
-            picture: "Ammonite.jpg",
+            picture: "assets/images/Ammonite.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
         Azurite: {
-            picture: "Azurite.jpg",
+            picture: "assets/images/Azurite.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
         Bismuth: {
-            picture: "Bismuth.jpg",
+            picture: "assets/images/Bismuth.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
         Calcite: {
-            picture: "Calcite.jpg",
+            picture: "assets/images/Calcite.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
         Chalcanthite: {
-            picture: "Chalcanthite.jpg",
+            picture: "assets/images/Chalcanthite.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
         Emerald: {
-            picture: "Emerald.jpg",
+            picture: "assets/images/Emerald.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
         Malachite: {
-            picture: "Malachite.jpg",
+            picture: "assets/images/Malachite.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
         Quartz: {
-            picture: "Quartz.jpg",
+            picture: "assets/images/Quartz.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
         Topaz: {
-            picture: "Topaz.jpg",
+            picture: "assets/images/Topaz.jpg",
+            points: (Math.floor(Math.random() * 12) + 1),
+
         },
     },
 }
@@ -77,11 +96,11 @@ var crystalPictureNumber = ($(this).attr(".crystalValue"));
 crystalPictureNumber = parseInt(crystalRandomNumber);
 
 
-for (var i=0; i<crystalRandomNumber.length; i++) {
-    var imageCrystal = $(".crystal-image");
-    imageCrystal.attr(".crystalValue", crystalRandomNumber[i]);
+// for (var i=0; i<crystalRandomNumber.length; i++) {
+//     var imageCrystal = $(".crystal-image");
+//     imageCrystal.attr(".crystalValue", crystalRandomNumber[i]);
 
-    };
+//     };
 
 var number = $(this).val();
 console.log(number);
@@ -106,8 +125,8 @@ else if (crystalValueTotal > targetNumber) {
 }
 });
 
-$(".crystalValue").html(crystalRandomNumber);
-console.log(crystalRandomNumber);
+// $(".crystalValue").html(crystalRandomNumber);
+// console.log(crystalRandomNumber);
 
  //generates random target score value on refresh and puts it on the html page
  document.getElementsByClassName('targetNumberValue').innerHTML = randomTargetOptions(19, 120);
@@ -122,18 +141,17 @@ console.log(crystalRandomNumber);
 $(".targetNumberValue").html(targetNumber);
 
 
- //generates a random crystal value on refresh
- document.getElementsByClassName('crystalValue').innerHTML = randomCrystalValues(1, 12);
+//  //generates a random crystal value on refresh
+//  document.getElementsByClassName('crystalValue').innerHTML = randomCrystalValues(1, 12);
 
- function randomCrystalValues(min, max) { //run a for loop inside this to get 4 random values
-     crystalRandomNumber = (Math.floor(Math.random() * (max - min + 1)) + min);
-     //for(var i=0; i<4; i++) {
+//  function randomCrystalValues(min, max) { //run a for loop inside this to get 4 random values
+//     for(var i=0; i<4; i++) {
+//      var crystalRandomNumberSelector = (Math.floor(Math.random() * (max - min + 1)) + min);
+//       crystalRandomNumber.push(crystalRandomNumberSelector)
+//     }
+//   };
 
-     //}
-
- }
-
- console.log(crystalRandomNumber);
+//  console.log(crystalRandomNumber);
  setupGame();
  restartGame();
  updateWins();
@@ -157,7 +175,7 @@ $(".targetNumberValue").html(targetNumber);
  function restartGame() {
      console.log("restart game")
      //this.crystalsInPlay = null;
-     this.crystalRandomNumber = [];
+    //  this.crystalRandomNumber = [];
      this.crystalValueTotal = 0; // the counter, add the clicked crystal values together
      this.targetNumber = []; // random number for target number
  

@@ -13,9 +13,8 @@
 
 //New game will reset the target number, crystal values, update win/loss numbers
 
-var crystalGame = {
+var crystalsToPick = {
 
-    crystalsToPick: {
         Amethyst: {
             picture: "assets/images/Amethyst.jpg",
             points: (Math.floor(Math.random() * 12) + 1),
@@ -65,68 +64,110 @@ var crystalGame = {
             points: (Math.floor(Math.random() * 12) + 1),
 
         },
-    },
-}
-
-var crystalsInPlay = [crystalGame.crystalsToPick]; //images of crystals
-var crystalRandomNumber = []; // sets the random value of the crystal
+    };
+//to generate a random number for crystals (wasn't able to get the object to function)
+var Amethyst = (Math.floor(Math.random() * 12) + 1);
+var Chalcanthite = (Math.floor(Math.random() * 12) + 1);
+var Malachite = (Math.floor(Math.random() * 12) + 1);
+var Topaz = (Math.floor(Math.random() * 12) + 1); 
+//var crystalRandomNumber = []; // sets the random value of the crystal
 var crystalValueTotal = 0; // the counter, add the clicked crystal values together
 var targetNumber = []; // random number for target number
 var wins = 0; // total wins
 var losses = 0; // total losses
 
+
 $(document).ready(function() {
 
+function initialize() {
+    crystalValueTotal = 0;
+    targetNumber = [];
+    
+    // for (var i=0; i<crystalsInPlay.length; i++) {
+    //     $(".crystalValue").attr(crystalsInPlay);
+    // }
 
-//sets the value to match the current total crystal value
-$(".crystalValueTotal").text(crystalValueTotal);
+    // $(".crystalValue1").html(Malachite);
+    // $(".crystalValue2").html(Amethyst);
+    // $(".crystalValue3").html(Chalcanthite);
+    // $(".crystalValue4").html(Topaz);
 
-$(".crystalValue").html(crystalRandomNumber);
+    $(".targetNumber").html(targetNumber);
+    $(".winCounter").text(wins);
+    $(".lossCounter").text(losses);
+    $(".crystalValueTotal").text(crystalValueTotal);
+}
 
-$(".winCounter").text(wins);
+initialize();
 
-$(".lossCounter").text(losses);
+// //sets the value to match the current total crystal value
+// $(".crystalValueTotal").text(crystalValueTotal);
+// //sets the value for each of the crystal images
+// $(".crystalValue").html(crystalsToPick.points);
+
+// $(".winCounter").text(wins);
+
+// $(".lossCounter").text(losses);
 
 //$(".crystal-image").html(crystalsInPlay);
 
 
-$(".crystal-image").on("click", function() {
-
-var crystalPictureNumber = ($(this).attr(".crystalValue"));
-crystalPictureNumber = parseInt(crystalRandomNumber);
-
-
-// for (var i=0; i<crystalRandomNumber.length; i++) {
-//     var imageCrystal = $(".crystal-image");
-//     imageCrystal.attr(".crystalValue", crystalRandomNumber[i]);
-
-//     };
-
-var number = $(this).val();
-console.log(number);
-
-crystalPictureNumber += number =$(".crystalValueTotal");
-
-if (crystalValueTotal === targetNumber) {
-    alert("You win!");
-
-    if (this.updateWins() === true) {
-        this.restartGame();  
-    }
-}
-
-else if (crystalValueTotal > targetNumber) {
-    alert("You lose!");
-
-    if (this.updateLosses() === true) {
-        this.restartGame();
-    }
-    
-}
+$(".crystalValue1").on("click", function() {
+    crystalValueTotal += Malachite;
+    $('.crystalValueTotal').text(crystalValueTotal);
+    console.log(Malachite);
+    winlosses();
 });
 
-// $(".crystalValue").html(crystalRandomNumber);
-// console.log(crystalRandomNumber);
+$(".crystalValue2").on("click", function() {
+    crystalValueTotal += Amethyst;
+    $('.crystalValueTotal').text(crystalValueTotal);
+    console.log(Amethyst);
+    winlosses();
+});
+
+$(".crystalValue3").on("click", function() {
+    crystalValueTotal += Chalcanthite;
+    $('.crystalValueTotal').text(crystalValueTotal);
+    console.log(Chalcanthite);
+    winlosses();
+});
+
+$(".crystalValue4").on("click", function() {
+    crystalValueTotal += Topaz;
+    $('.crystalValueTotal').text(crystalValueTotal);
+    console.log(Topaz);
+    winlosses();
+});
+
+function restartGame() {
+    console.log("restart game")
+    //this.crystalsInPlay = null;
+   //  this.crystalRandomNumber = [];
+    $(".crystalValueTotal").empty(); // the counter, add the clicked crystal values together
+    $(".targetNumber").empty(); // random number for target number
+
+};
+
+restartGame();
+
+function winlosses() {
+
+    if (crystalValueTotal === targetNumber) {
+        alert("You win!");
+        wins++;
+        restartGame();  
+    }
+    
+    else if (crystalValueTotal > targetNumber) {
+        alert("You lose!");
+        losses++;
+        this.restartGame();    
+    }
+};
+
+winlosses();
+
 
  //generates random target score value on refresh and puts it on the html page
  document.getElementsByClassName('targetNumberValue').innerHTML = randomTargetOptions(19, 120);
@@ -140,6 +181,39 @@ else if (crystalValueTotal > targetNumber) {
     //set the value to match the target number variable
 $(".targetNumberValue").html(targetNumber);
 
+});
+
+// for(key in crystalsToPick) {
+//     $(".crystalValue") += .attr(points);
+//     console.log(points);
+// });
+
+
+
+// var crystalPictureNumber = ($(this).attr(".crystalValue"));
+// //crystalPictureNumber = parseInt(crystalRandomNumber);
+
+
+// // for (var i=0; i<crystalRandomNumber.length; i++) {
+// //     var imageCrystal = $(".crystal-image");
+// //     imageCrystal.attr(".crystalValue", crystalRandomNumber[i]);
+
+// //     };
+
+// var number = $(this).val();
+// console.log(number);
+
+    //}
+//}
+
+
+// crystalPictureNumber += number =$(".crystalValueTotal");
+
+
+//});
+
+// $(".crystalValue").html(crystalRandomNumber);
+// console.log(crystalRandomNumber);
 
 //  //generates a random crystal value on refresh
 //  document.getElementsByClassName('crystalValue').innerHTML = randomCrystalValues(1, 12);
@@ -152,72 +226,63 @@ $(".targetNumberValue").html(targetNumber);
 //   };
 
 //  console.log(crystalRandomNumber);
- setupGame();
- restartGame();
- updateWins();
- updateLosses();
-
-
- function setupGame() {
-     console.log("setup the game");
-     wins = 0;
-     losses = 0;
-     //console.log(object.entries(crystalGame.crystalsToPick.property));
-     //picks a random crystal
-     //var objKeys = Object.keys(crystalGame.crystalsToPick.picture);
-    //this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
-
-    //need a this function that will put the chosen pictures onto the four cards
-    //need a function to assign a random value to each of the picture cards
-     
- };
-
- function restartGame() {
-     console.log("restart game")
-     //this.crystalsInPlay = null;
-    //  this.crystalRandomNumber = [];
-     this.crystalValueTotal = 0; // the counter, add the clicked crystal values together
-     this.targetNumber = []; // random number for target number
  
- };
+//  updateWins();
+//  updateLosses();
 
- function updateWins() {
-     console.log("I win")
+ 
 
-     var win;
-     if (crystalValueTotal != targetNumber) {
-         win = false;
-     } else {
-         win = true;
-         if (win) {
-             this.wins = this.wins + 1;
-             document.querySelector(".winCounter").innerHTML = this.wins;
-             //document.querySelector(".crystal-image").innerHTML = "<img class='crystal-image' src='../unit-4-game/assets/images/.." + this.crystalGame.crystalsToPick[this.crystalsInPlay].picture + "'>";
-             return true;
-         }
-         return false;
-     }
+//  function updateWins() {
+//      console.log("I win")
 
- };
+//      var win;
+//      if (crystalValueTotal != targetNumber) {
+//          win = false;
+//      } else {
+//          win = true;
+//          if (win) {
+//              this.wins = this.wins + 1;
+//              document.querySelector(".winCounter").innerHTML = this.wins;
+//              //document.querySelector(".crystal-image").innerHTML = "<img class='crystal-image' src='../unit-4-game/assets/images/.." + this.crystalGame.crystalsToPick[this.crystalsInPlay].picture + "'>";
+//              return true;
+//          }
+//          return false;
+//      }
 
- function updateLosses() {
-     console.log("I lose");
+//  };
 
-     var lose;
-     if (crystalValueTotal === targetNumber) {
-         lose = true;
-         if (lose) {
-             this.losses = this.losses + 1;
-             document.querySelector(".lossCounter").innerHTML = this.losses;
+//  function updateLosses() {
+//      console.log("I lose");
 
-         }
-     } else {
-         lose = false;
-     }
+//      var lose;
+//      if (crystalValueTotal === targetNumber) {
+//          lose = true;
+//          if (lose) {
+//              this.losses = this.losses + 1;
+//              document.querySelector(".lossCounter").innerHTML = this.losses;
 
- };
+//          }
+//      } else {
+//          lose = false;
+//      }
+
+//  };
 
 
-})
+
+//  function setupGame() {
+//      console.log("setup the game");
+//      wins = 0;
+//      losses = 0;
+//      //console.log(object.entries(crystalGame.crystalsToPick.property));
+//      //picks a random crystal
+//      //var objKeys = Object.keys(crystalGame.crystalsToPick.picture);
+//     //this.crystalsInPlay = objKeys[Math.floor(Math.random() * objKeys.length)];
+
+//     //need a this function that will put the chosen pictures onto the four cards
+//     //need a function to assign a random value to each of the picture cards
+     
+//  };
+
   
    

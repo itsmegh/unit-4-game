@@ -16,50 +16,60 @@
 var crystalsToPick = {
 
     Amethyst: {
+        crystal: "Amethyst",
         picture: "assets/images/Amethyst.jpg",
-        points: 0,
+        points: 0
     },
     Ammonite: {
+        crystal: "Ammonite",
         picture: "assets/images/Ammonite.jpg",
         points: 0,
 
     },
     Azurite: {
+        crystal: "Azurite",
         picture: "assets/images/Azurite.jpg",
         points: 0,
 
     },
     Bismuth: {
+        crystal: "Bismuth",
         picture: "assets/images/Bismuth.jpg",
         points: 0,
 
     },
     Calcite: {
+        crystal: "Calcite",
         picture: "assets/images/Calcite.jpg",
         points: 0,
 
     },
     Chalcanthite: {
+        crystal: "Chalcanthite",
         picture: "assets/images/Chalcanthite.jpg",
         points: 0,
 
     },
     Emerald: {
+        crystal: "Emerald",
         picture: "assets/images/Emerald.jpg",
         points: 0,
 
     },
     Malachite: {
+        crystal: "Malachite",
         picture: "assets/images/Malachite.jpg",
         points: 0,
 
     },
     Quartz: {
+        crystal: "Quartz",
         picture: "assets/images/Quartz.jpg",
         points: 0,
 
     },
     Topaz: {
+        crystal: "Topaz",
         picture: "assets/images/Topaz.jpg",
         points: 0,
 
@@ -75,21 +85,15 @@ var losses = 0; // total losses
 //dynamically add a div -- console.log the clicks
 //change to array of objects if the current object of objects 
 
+console.log(object.keys(crystalsToPick));
+
 $(document).ready(function() {
 
     var getRandomNum = function(min, max) {
         return (Math.floor(Math.random() * (max-min + 1)) + min);
     };
 
-    var crystalArray = object.keys(crystalsToPick);
-    var crystalIndex = Math.floor(Math.random() * crystalArray.length);
-    var randomCrystal = crystalArray[crystalIndex];
-    var randomImage = crystalsToPick[randomCrystal];
-
-    console.log(randomImage);
-    // var getRandomPic = function(crystal) {
-        
-    // };
+ 
 
 
 });

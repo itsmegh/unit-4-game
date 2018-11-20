@@ -65,6 +65,15 @@ var crystalsToPick = {
 
         },
     };
+
+// open a new vs code folder -- start over with the pieces 
+// need to redeclare the computer guess each time you run the game
+// similar to the psychic game 
+// want points to be 0 in the array and then a function to set the point value
+// this option allows you to randomly choose a crystal too
+// one function that gets the random value and the image -- do it once at the beginning
+// restart game and rerun the function
+
 //to generate a random number for crystals (wasn't able to get the object to function)
 var Amethyst = (Math.floor(Math.random() * 12) + 1);
 var Chalcanthite = (Math.floor(Math.random() * 12) + 1);
@@ -111,6 +120,14 @@ initialize();
 
 //$(".crystal-image").html(crystalsInPlay);
 
+
+
+
+
+
+//console.log(this) -- when clicking on the crystal div
+//dynamically add a div -- console.log the clicks
+//change to array of objects if the current object of objects 
 
 $(".crystalValue1").on("click", function() {
     crystalValueTotal += Malachite;
@@ -162,7 +179,7 @@ function winlosses() {
     else if (crystalValueTotal > targetNumber) {
         alert("You lose!");
         losses++;
-        this.restartGame();    
+        restartGame();    
     }
 };
 

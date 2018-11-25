@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crystal Collector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+
+   
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Crystal Collector</h1>
+                <p class="lead">Game Rules:</p>
+                <p>Choose among four crystals to reach the target score.</p>
+                <p>Each time you restart the game, the target score and crystal values will change.</p>
+                <p>Win the game by matching your crystal value total to the target score.</p>
+        </div>
+    </div>
+    <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Target Score</h5>
+                                <p class="card-text"><span class="targetNumberValue"></span></p>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Crystal Value Total</h5>
+                                <p class="card-text"><span class="crystalValueTotal"></span></p>
+                            </div>
+                        </div>
+                </div>
+                <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Game Totals</h5>
+                                <p class="card-text">Wins</p>
+                                    <p class="card-text"><span class="winCounter"></span></p>
+                                <p class="card-text">Losses</p>
+                                    <p class="card-text"><span class="lossCounter"></span></p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-3">
+                        <div class="card crystal-card" style="width: 18rem;">
+                                <img class="card-img-top crystal-image crystalValue1" src="assets/images/Malachite.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                  <p class="card-text"><span class="crystal-name">Malachite</span></p>
+                                </div>
+                        </div> 
+                </div>
+                <div class="col-md-3">
+                        <div class="card crystal-card" style="width: 18rem;">
+                                <img class="card-img-top crystal-image crystalValue2" src="assets/images/Amethyst.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                  <p class="card-text"><span class="crystal-name">Amethyst</span></p>
+                                </div>
+                        </div> 
+                </div>
+                <div class="col-md-3">
+                        <div class="card crystal-card" style="width: 18rem;">
+                                <img class="card-img-top crystal-image crystalValue3" src="assets/images/Chalcanthite.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                  <p class="card-text"><span class="crystal-name">Chalcanthite</span></p>
+                                </div>
+                        </div> 
+                </div>
+                <div class="col-md-3">
+                        <div class="card crystal-card" style="width: 18rem;">
+                                <img class="card-img-top crystal-image crystalValue4" src="assets/images/Topaz.jpg" alt="Card image cap">
+                                <div class="card-body">
+                                  <p class="card-text"><span class="crystal-name">Topaz</span></p>
+                                </div>
+                        </div> 
+                </div>
+            </div>
+
+    </div>
+
+<script src="assets/javascript/app.js"></script>
+
+<link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css"/>
+   
+</body>
+
+</html>

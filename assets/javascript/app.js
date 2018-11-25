@@ -92,16 +92,47 @@ var getRandomNum = function(min, max) {
 
 function crystalPick() {
     for(var key in crystalsToPick) {
-        console.log(key);
+        //console.log(key);
 
         var crystalObj = crystalsToPick[key];
-        console.log(crystalObj);
+        //console.log(crystalObj);
 
-        var values = Object.values(crystalsToPick[key]);
-        for (var entry of values) {
-            //returning the values within each crystal object
-            console.log(entry);
-        };
+        // var values = Object.values(crystalsToPick[key]);
+        // for (var entry of values) {
+        //     //returning the values within each crystal object
+        //     //console.log(entry);
+        // };
+
+        console.log(crystalsToPick[key].points);
+        console.log(crystalsToPick[key].picture);
+        console.log(crystalsToPick[key].crystal);
+
+        var crystalCard = $("<div>")
+            .addClass("card")
+            .addClass("crystal-card")
+            .attr("style", "width: 18rem");
+        
+        var crystalImage = $("<img>")
+            .addClass("card-img-top")
+            .addClass("crystal-image")
+            .attr("src", crystalsToPick[key].picture)
+            .attr("alt", "crystal image");
+        
+        var crystalBody = $("<div>")
+            .addClass("card-body");
+        
+        var crystalText = $("<p>")
+            .addClass("card-text")
+            .addClass("crystal-name")
+            .text(crystalsToPick[key].crystal);
+        
+
+
+
+        //change the points for the crystals with crystalsToPick[key].points=getRandomNum(1, 12)
+        //then dynamically add the crystals to the page -- just get all crystals to load first
+
+        //then look at how to pick only 4 elements at a time from the object
     };
 
     

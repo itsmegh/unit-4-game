@@ -1,5 +1,5 @@
 //Click any button to start the game
-//When the game loads, there will be four crystals showing with random values - 
+//When the game loads, there will be four crystals showing with random values -
     //values should be between 1-12
 //When the game loads, there will be a random target number - done!
     //value should be between 19-120
@@ -76,24 +76,66 @@ var crystalsToPick = {
     },
 };
 
+
 var crystalValueTotal = 0; // the counter, add the clicked crystal values together
 var targetNumber = 0; // random number for target number
 var wins = 0; // total wins
 var losses = 0; // total losses
 
-//console.log(this) -- when clicking on the crystal div
-//dynamically add a div -- console.log the clicks
-//change to array of objects if the current object of objects 
+var getRandomNum = function(min, max) {
+    return (Math.floor(Math.random() * (max-min + 1)) + min);
+};
 
-console.log(object.keys(crystalsToPick));
+    //assign the random target number to a number between 19 and 120
+    targetNumber = getRandomNum(19, 120);
+    console.log(targetNumber);
 
-$(document).ready(function() {
+function crystalPick() {
+    for(var key in crystalsToPick) {
+        console.log(key);
 
-    var getRandomNum = function(min, max) {
-        return (Math.floor(Math.random() * (max-min + 1)) + min);
+        var crystalObj = crystalsToPick[key];
+        console.log(crystalObj);
+
+        var values = Object.values(crystalsToPick[key]);
+        for (var entry of values) {
+            //returning the values within each crystal object
+            console.log(entry);
+        };
     };
 
- 
+    
+  
+    };
 
 
-});
+crystalPick();
+
+
+//console.log(this) -- when clicking on the crystal div
+//dynamically add a div -- console.log the clicks
+//change to array of objects if the current object of objects
+
+
+// $(document).ready(function() {
+
+//     var getRandomNum = function(min, max) {
+//         return (Math.floor(Math.random() * (max-min + 1)) + min);
+//     };
+
+//     //assign the random target number to a number between 19 and 120
+//     targetNumber = getRandomNum(19, 120);
+//     console.log(targetNumber);
+
+//     var list = function(crystalsToPick) {
+
+//         for (var a in object) {
+//             console.log(crystalsToPick[a]);
+//         }
+//     };
+
+//     var crystalValues = list();
+//     console.log(crystalValues);
+
+
+// });

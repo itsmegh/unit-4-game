@@ -123,10 +123,14 @@ function crystalPick() {
         
         var crystalText = $("<p>")
             .addClass("card-text")
-            .addClass("crystal-name")
             .text(crystalsToPick[key].crystal);
-        
 
+  
+        
+        $("#crystalSection").append(crystalCard);
+        crystalCard.append(crystalImage);
+        crystalCard.append(crystalBody);
+        crystalBody.append(crystalText);
 
 
         //change the points for the crystals with crystalsToPick[key].points=getRandomNum(1, 12)

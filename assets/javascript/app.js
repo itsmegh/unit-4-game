@@ -86,36 +86,25 @@ var getRandomNum = function(min, max) {
     return (Math.floor(Math.random() * (max-min + 1)) + min);
 };
 
-    //assign the random target number to a number between 19 and 120
-    targetNumber = getRandomNum(19, 120);
-    console.log(targetNumber);
-
 function crystalPick() {
     for(var key in crystalsToPick) {
-        //console.log(key);
 
         var crystalObj = crystalsToPick[key];
-        //console.log(crystalObj);
-
-        // var values = Object.values(crystalsToPick[key]);
-        // for (var entry of values) {
-        //     //returning the values within each crystal object
-        //     //console.log(entry);
-        // };
-
-        console.log(crystalsToPick[key].points);
-        console.log(crystalsToPick[key].picture);
-        console.log(crystalsToPick[key].crystal);
+        var crystalValue = crystalsToPick[key].points;
 
         var crystalCard = $("<div>")
             .addClass("card")
             .addClass("crystal-card")
-            .attr("style", "width: 18rem");
+            .attr("style", "width: 18rem")
+            .click(function() {
+                crystalValue = getRandomNum(1, 12);
+                console.log(crystalValue);
+            });
         
         var crystalImage = $("<img>")
             .addClass("card-img-top")
             .addClass("crystal-image")
-            .attr("src", crystalsToPick[key].picture)
+            .attr("src", crystalObj.picture)
             .attr("alt", "crystal image");
         
         var crystalBody = $("<div>")
@@ -123,10 +112,8 @@ function crystalPick() {
         
         var crystalText = $("<p>")
             .addClass("card-text")
-            .text(crystalsToPick[key].crystal);
+            .text(crystalObj.crystal);
 
-  
-        
         $("#crystalSection").append(crystalCard);
         crystalCard.append(crystalImage);
         crystalCard.append(crystalBody);
@@ -138,13 +125,25 @@ function crystalPick() {
 
         //then look at how to pick only 4 elements at a time from the object
     };
-
-    
   
     };
 
+var startGame = function() {
+    crystalPick();
+    //reset the current score
+    crystalValueTotal = 0;
+    $(".crystalValueTotal").html(crystalValueTotal);
 
-crystalPick();
+    //assign the random target number to a number between 19 and 120
+    targetNumber = getRandomNum(19, 120);
+    $(".targetNumberValue").html(targetNumber);
+}
+
+
+
+
+startGame();
+
 
 
 //console.log(this) -- when clicking on the crystal div

@@ -13,163 +13,166 @@
 
 //New game will reset the target number, crystal values, update win/loss numbers
 
-var crystalsToPick = {
+$(document).ready(function() {
 
-    Amethyst: {
-        crystal: "Amethyst",
-        picture: "assets/images/Amethyst.jpg",
-        points: 0
-    },
-    Ammonite: {
-        crystal: "Ammonite",
-        picture: "assets/images/Ammonite.jpg",
-        points: 0,
-
-    },
-    Azurite: {
-        crystal: "Azurite",
-        picture: "assets/images/Azurite.jpg",
-        points: 0,
-
-    },
-    Bismuth: {
-        crystal: "Bismuth",
-        picture: "assets/images/Bismuth.jpg",
-        points: 0,
-
-    },
-    Calcite: {
-        crystal: "Calcite",
-        picture: "assets/images/Calcite.jpg",
-        points: 0,
-
-    },
-    Chalcanthite: {
-        crystal: "Chalcanthite",
-        picture: "assets/images/Chalcanthite.jpg",
-        points: 0,
-
-    },
-    Emerald: {
-        crystal: "Emerald",
-        picture: "assets/images/Emerald.jpg",
-        points: 0,
-
-    },
-    Malachite: {
-        crystal: "Malachite",
-        picture: "assets/images/Malachite.jpg",
-        points: 0,
-
-    },
-    Quartz: {
-        crystal: "Quartz",
-        picture: "assets/images/Quartz.jpg",
-        points: 0,
-
-    },
-    Topaz: {
-        crystal: "Topaz",
-        picture: "assets/images/Topaz.jpg",
-        points: 0,
-
-    },
-};
-
-
-var crystalValueTotal = 0; // the counter, add the clicked crystal values together
-var targetNumber = 0; // random number for target number
-var wins = 0; // total wins
-var losses = 0; // total losses
-
-var getRandomNum = function(min, max) {
-    return (Math.floor(Math.random() * (max-min + 1)) + min);
-};
-
-function crystalPick() {
-    for(var key in crystalsToPick) {
-
-        var crystalObj = crystalsToPick[key];
-        var crystalValue = crystalsToPick[key].points;
-
-        var crystalCard = $("<div>")
-            .addClass("card")
-            .addClass("crystal-card")
-            .attr("style", "width: 18rem")
-            .click(function() {
-                crystalValue = getRandomNum(1, 12);
-                console.log(crystalValue);
-            });
-        
-        var crystalImage = $("<img>")
-            .addClass("card-img-top")
-            .addClass("crystal-image")
-            .attr("src", crystalObj.picture)
-            .attr("alt", "crystal image");
-        
-        var crystalBody = $("<div>")
-            .addClass("card-body");
-        
-        var crystalText = $("<p>")
-            .addClass("card-text")
-            .text(crystalObj.crystal);
-
-        $("#crystalSection").append(crystalCard);
-        crystalCard.append(crystalImage);
-        crystalCard.append(crystalBody);
-        crystalBody.append(crystalText);
-
-
-        //change the points for the crystals with crystalsToPick[key].points=getRandomNum(1, 12)
-        //then dynamically add the crystals to the page -- just get all crystals to load first
-
-        //then look at how to pick only 4 elements at a time from the object
-    };
-  
+    var getRandomNum = function(min, max) {
+        return (Math.floor(Math.random() * (max-min + 1)) + min);
     };
 
-var startGame = function() {
-    crystalPick();
-    //reset the current score
-    crystalValueTotal = 0;
-    $(".crystalValueTotal").html(crystalValueTotal);
+    var crystalsToPick = [
 
-    //assign the random target number to a number between 19 and 120
-    targetNumber = getRandomNum(19, 120);
-    $(".targetNumberValue").html(targetNumber);
-}
+        {Amethyst: {
+            crystal: "Amethyst",
+            picture: "assets/images/Amethyst.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Ammonite: {
+            crystal: "Ammonite",
+            picture: "assets/images/Ammonite.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Azurite: {
+            crystal: "Azurite",
+            picture: "assets/images/Azurite.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Bismuth: {
+            crystal: "Bismuth",
+            picture: "assets/images/Bismuth.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Calcite: {
+            crystal: "Calcite",
+            picture: "assets/images/Calcite.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Chalcanthite: {
+            crystal: "Chalcanthite",
+            picture: "assets/images/Chalcanthite.jpg",
+            points: getRandomNum(1, 12)
+
+        }},
+        {Emerald: {
+            crystal: "Emerald",
+            picture: "assets/images/Emerald.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Malachite: {
+            crystal: "Malachite",
+            picture: "assets/images/Malachite.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Quartz: {
+            crystal: "Quartz",
+            picture: "assets/images/Quartz.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Topaz: {
+            crystal: "Topaz",
+            picture: "assets/images/Topaz.jpg",
+            points: getRandomNum(1, 12)
+        }},
+    ];
+
+    var crystalValueTotal = 0; // the counter, add the clicked crystal values together
+    var targetNumber = 0; // random number for target number
+    var wins = 0; // total wins
+    var losses = 0; // total losses
+
+    var shuffle = function(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+        //console.log(crystalsToPick);
+    };
+
+    shuffle(crystalsToPick);
+
+    // every time created a crystal -- cyrstal counter = 0
+    //if less than 4 
+    // then run code to randomly select a crystal object and create html element for the object
+    // cyrstalCounter++
+    //else for enough crystals and get it to stop making crystals
+    //return false
+    function crystalPick() {
+
+        for (var i = 0; i < 4; i++) {
+            for (var key in crystalsToPick[i]) {
+                var crystalObj = crystalsToPick[i][key];
+                var crystalValue = (crystalsToPick[i][key].points);
+
+
+                console.log(crystalsToPick[i][key].points);
+        
+                var crystalCard = $("<div>")
+                    .addClass("card")
+                    .addClass("crystal-card")
+                    .attr("style", "width: 18rem")
+                    .attr("points", crystalValue)
+                    .click(function() {
+                        console.log(this);
+                        console.log($(this).attr("points"));
+                        addCrystals();
+                    });
+                
+                var crystalImage = $("<img>")
+                    .addClass("card-img-top")
+                    .addClass("crystal-image")
+                    .attr("src", crystalObj.picture)
+                    .attr("alt", "crystal image");
+                
+                var crystalBody = $("<div>")
+                    .addClass("card-body");
+                
+                var crystalText = $("<p>")
+                    .addClass("card-text")
+                    .text(crystalObj.crystal);
+        
+                $("#crystalSection").append(crystalCard);
+                crystalCard.append(crystalImage);
+                crystalCard.append(crystalBody);
+                crystalBody.append(crystalText);
+
+
+            }
+        }
+
+        var addCrystals = function() {
+            $("points").html()
+        }
+    };
+
+    var startGame = function() {
+        crystalPick();
+        //reset the current score
+        crystalValueTotal = 0;
+        $(".crystalValueTotal").html(crystalValueTotal);
+
+        //assign the random target number to a number between 19 and 120
+        targetNumber = getRandomNum(19, 120);
+        $(".targetNumberValue").html(targetNumber);
+    }
+
+    startGame();
+
+    function winlosses() {
+
+        if (crystalValueTotal === targetNumber) {
+            alert("You win!");
+            wins++;
+        }
+        
+        else if (crystalValueTotal > targetNumber) {
+            alert("You lose!");
+            losses++;
+        }
+    };
 
 
 
 
-startGame();
 
 
-
-//console.log(this) -- when clicking on the crystal div
-//dynamically add a div -- console.log the clicks
-//change to array of objects if the current object of objects
-
-
-// $(document).ready(function() {
-
-//     var getRandomNum = function(min, max) {
-//         return (Math.floor(Math.random() * (max-min + 1)) + min);
-//     };
-
-//     //assign the random target number to a number between 19 and 120
-//     targetNumber = getRandomNum(19, 120);
-//     console.log(targetNumber);
-
-//     var list = function(crystalsToPick) {
-
-//         for (var a in object) {
-//             console.log(crystalsToPick[a]);
-//         }
-//     };
-
-//     var crystalValues = list();
-//     console.log(crystalValues);
-
-
-// });
+});

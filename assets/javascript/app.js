@@ -113,6 +113,12 @@ $(document).ready(function() {
                     .click(function() {
                         //console.log(this);
                         console.log($(this).attr("points"));
+                        var crystalValue = $(crystalCard).attr("points");
+                        crystalValue = parseInt(crystalValue);
+                        crystalValueTotal += crystalValue;
+                        console.log(crystalValueTotal);
+                        $(".crystalValueTotal").html(crystalValueTotal);
+                        winlosses();
                     });
                 
                 var crystalImage = $("<img>")
@@ -134,15 +140,6 @@ $(document).ready(function() {
                 crystalBody.append(crystalText);
             }
         }
-        function updateTotal() {
-            var crystalValue = $(crystalCard).attr("points");
-            crystalValue = parseInt(crystalValue);
-            crystalValue += crystalValueTotal;
-            console.log(crystalValueTotal);
-
-        }
-        updateTotal();
-
     };
 
     var startGame = function() {

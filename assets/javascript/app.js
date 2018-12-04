@@ -137,7 +137,11 @@ $(document).ready(function() {
         function updateTotal() {
             var crystalValue = $(crystalCard).attr("points");
             crystalValue = parseInt(crystalValue);
-        };
+            crystalValue += crystalValueTotal;
+            console.log(crystalValueTotal);
+
+        }
+        updateTotal();
 
     };
 
@@ -145,9 +149,7 @@ $(document).ready(function() {
         crystalPick();
         //reset the current score
         crystalValueTotal = 0;
-        crystalValueTotal += crystalValue;
-        updateTotal()
-        console.log(crystalValueTotal);
+
         $(".crystalValueTotal").html(crystalValueTotal);
 
         //assign the random target number to a number between 19 and 120

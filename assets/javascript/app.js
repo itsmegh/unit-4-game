@@ -103,7 +103,6 @@ $(document).ready(function() {
                 var crystalObj = crystalsToPick[i][key];
                 var crystalValue = (crystalsToPick[i][key].points);
 
-
                 console.log(crystalsToPick[i][key].points);
         
                 var crystalCard = $("<div>")
@@ -112,9 +111,8 @@ $(document).ready(function() {
                     .attr("style", "width: 18rem")
                     .attr("points", crystalValue)
                     .click(function() {
-                        console.log(this);
+                        //console.log(this);
                         console.log($(this).attr("points"));
-                        addCrystals();
                     });
                 
                 var crystalImage = $("<img>")
@@ -134,20 +132,22 @@ $(document).ready(function() {
                 crystalCard.append(crystalImage);
                 crystalCard.append(crystalBody);
                 crystalBody.append(crystalText);
-
-
             }
         }
+        function updateTotal() {
+            var crystalValue = $(crystalCard).attr("points");
+            crystalValue = parseInt(crystalValue);
+        };
 
-        var addCrystals = function() {
-            $("points").html()
-        }
     };
 
     var startGame = function() {
         crystalPick();
         //reset the current score
         crystalValueTotal = 0;
+        crystalValueTotal += crystalValue;
+        updateTotal()
+        console.log(crystalValueTotal);
         $(".crystalValueTotal").html(crystalValueTotal);
 
         //assign the random target number to a number between 19 and 120
@@ -156,6 +156,10 @@ $(document).ready(function() {
     }
 
     startGame();
+
+    //update that crystal value total with the point value of the crystal that was clicked
+
+
 
     function winlosses() {
 

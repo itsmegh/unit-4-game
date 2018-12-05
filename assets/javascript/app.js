@@ -21,6 +21,11 @@ $(document).ready(function() {
 
     var crystalsToPick = [
 
+        {Amazonite: {
+            crystal: "Amazonite",
+            picture: "assets/images/Amazonite.jpg",
+            points: getRandomNum(1, 12)
+        }},
         {Amethyst: {
             crystal: "Amethyst",
             picture: "assets/images/Amethyst.jpg",
@@ -50,7 +55,6 @@ $(document).ready(function() {
             crystal: "Chalcanthite",
             picture: "assets/images/Chalcanthite.jpg",
             points: getRandomNum(1, 12)
-
         }},
         {Emerald: {
             crystal: "Emerald",
@@ -62,9 +66,24 @@ $(document).ready(function() {
             picture: "assets/images/Malachite.jpg",
             points: getRandomNum(1, 12)
         }},
+        {Opal: {
+            crystal: "Opal",
+            picture: "assets/images/Opal.jpg",
+            points: getRandomNum(1, 12)
+        }},
         {Quartz: {
             crystal: "Quartz",
             picture: "assets/images/Quartz.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Rhodonchrosite: {
+            crystal: "Rhodochrosite",
+            picture: "assets/images/Rhodochrosite.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Sulfur: {
+            crystal: "Sulfur",
+            picture: "assets/images/Sulfur.jpg",
             points: getRandomNum(1, 12)
         }},
         {Topaz: {
@@ -72,6 +91,16 @@ $(document).ready(function() {
             picture: "assets/images/Topaz.jpg",
             points: getRandomNum(1, 12)
         }},
+        {Tourmaline: {
+            crystal: "Tourmaline",
+            picture: "assets/images/Tourmaline.jpg",
+            points: getRandomNum(1, 12)
+        }},
+        {Wulfenite: {
+            crystal: "Wulfenite",
+            picture: "assets/images/Wulfenite.jpg",
+            points: getRandomNum(1, 12)
+        }}
     ];
 
     var crystalValueTotal = 0; // the counter, add the clicked crystal values together
@@ -153,7 +182,6 @@ $(document).ready(function() {
         targetNumber = getRandomNum(19, 120);
         $(".targetNumberValue").html(targetNumber);
     }
-
     startGame();
 
     var restartGame = function() {
@@ -161,7 +189,7 @@ $(document).ready(function() {
         $("#crystalSection").empty();
         shuffle(crystalsToPick);
         //reshuffle array to get new crystals and numbers
-
+        startGame();
         
     }
 

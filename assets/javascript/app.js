@@ -112,10 +112,10 @@ $(document).ready(function() {
                     .attr("points", crystalValue)
                     .click(function() {
                         //console.log(this);
-                        console.log($(this).attr("points"));
-                        var crystalValue = $(crystalCard).attr("points");
-                        crystalValue = parseInt(crystalValue);
-                        crystalValueTotal += crystalValue;
+                        console.log("points", $(this).attr("points"));//
+                        var valueToAdd = $(this).attr("points");
+                        valueToAdd = parseInt(valueToAdd);
+                        crystalValueTotal += valueToAdd;
                         console.log(crystalValueTotal);
                         $(".crystalValueTotal").html(crystalValueTotal);
                         winlosses();
@@ -156,6 +156,15 @@ $(document).ready(function() {
 
     startGame();
 
+    var restartGame = function() {
+        //remove old crystals -- .empty()
+        $("#crystalSection").empty();
+        shuffle(crystalsToPick);
+        //reshuffle array to get new crystals and numbers
+
+        
+    }
+
     //update that crystal value total with the point value of the crystal that was clicked
 
 
@@ -165,11 +174,15 @@ $(document).ready(function() {
         if (crystalValueTotal === targetNumber) {
             alert("You win!");
             wins++;
+            $(".winCounter").text(wins);
+            restartGame();
         }
         
         else if (crystalValueTotal > targetNumber) {
             alert("You lose!");
             losses++;
+            $(".lossCounter").text(losses);
+            restartGame();
         }
     };
 

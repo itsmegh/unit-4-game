@@ -108,23 +108,18 @@ $(document).ready(function() {
     var wins = 0; // total wins
     var losses = 0; // total losses
 
+    //shuffle through the array of crystals
     var shuffle = function(array) {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
         return array;
-        //console.log(crystalsToPick);
     };
 
     shuffle(crystalsToPick);
 
-    // every time created a crystal -- cyrstal counter = 0
-    //if less than 4 
-    // then run code to randomly select a crystal object and create html element for the object
-    // cyrstalCounter++
-    //else for enough crystals and get it to stop making crystals
-    //return false
+    //pick 4 crystals for the game, give each a point value and put on the page
     function crystalPick() {
 
         for (var i = 0; i < 4; i++) {
@@ -171,7 +166,9 @@ $(document).ready(function() {
         }
     };
 
+    //code for the initial game start and resets
     var startGame = function() {
+        $(".alert").hide();
         crystalPick();
         //reset the current score
         crystalValueTotal = 0;
@@ -184,39 +181,31 @@ $(document).ready(function() {
     }
     startGame();
 
+    //code to restart game and put new crystals on the page
     var restartGame = function() {
-        //remove old crystals -- .empty()
+        $(".alert").hide();
         $("#crystalSection").empty();
         shuffle(crystalsToPick);
         //reshuffle array to get new crystals and numbers
         startGame();
         
-    }
+    };
 
-    //update that crystal value total with the point value of the crystal that was clicked
-
-
-
+    //determine win or loss and change the game counter
     function winlosses() {
-
         if (crystalValueTotal === targetNumber) {
-            alert("You win!");
+            alert("Rock on! You win!")
             wins++;
             $(".winCounter").text(wins);
             restartGame();
         }
         
         else if (crystalValueTotal > targetNumber) {
-            alert("You lose!");
+            alert("Don't hit rock bottom. Try again?")
             losses++;
             $(".lossCounter").text(losses);
             restartGame();
         }
     };
-
-
-
-
-
 
 });

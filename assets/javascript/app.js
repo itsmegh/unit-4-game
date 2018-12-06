@@ -73,7 +73,7 @@ $(document).ready(function() {
         }},
         {Quartz: {
             crystal: "Quartz",
-            picture: "assets/images/Quartz.JPG",
+            picture: "assets/images/Quartz.jpg",
             points: getRandomNum(1, 12)
         }},
         {Rhodonchrosite: {

@@ -71,11 +71,6 @@ $(document).ready(function() {
             picture: "assets/images/Opal.jpg",
             points: getRandomNum(1, 12)
         }},
-        {Quartz: {
-            crystal: "Quartz",
-            picture: "assets/images/Quartz.jpg",
-            points: getRandomNum(1, 12)
-        }},
         {Rhodonchrosite: {
             crystal: "Rhodochrosite",
             picture: "assets/images/Rhodochrosite.jpg",
@@ -96,11 +91,16 @@ $(document).ready(function() {
             picture: "assets/images/Tourmaline.jpg",
             points: getRandomNum(1, 12)
         }},
+        {Quartz: {
+            crystal: "Quartz",
+            picture: "assets/images/Quartz.jpg",
+            points: getRandomNum(1, 12)
+        }},
         {Wulfenite: {
             crystal: "Wulfenite",
             picture: "assets/images/Wulfenite.jpg",
             points: getRandomNum(1, 12)
-        }}
+        }},
     ];
 
     var crystalValueTotal = 0; // the counter, add the clicked crystal values together

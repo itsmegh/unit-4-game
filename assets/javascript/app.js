@@ -91,11 +91,6 @@ $(document).ready(function() {
             picture: "assets/images/Tourmaline.jpg",
             points: getRandomNum(1, 12)
         }},
-        {Quartz: {
-            crystal: "Quartz",
-            picture: "assets/images/Quartz.jpg",
-            points: getRandomNum(1, 12)
-        }},
         {Wulfenite: {
             crystal: "Wulfenite",
             picture: "assets/images/Wulfenite.jpg",

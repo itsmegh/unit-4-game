@@ -6,3 +6,6 @@ Game design notes
 
 The random number shown at the start of the game is programmed to be between 19 - 120.
 Each crystal has a random hidden value between 1 - 12.
+
+
+The live application can be found here: https://meghansmorris.github.io/CrystalCollector/
